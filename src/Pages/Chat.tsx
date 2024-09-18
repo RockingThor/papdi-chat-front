@@ -1,3 +1,5 @@
+import ChatPeople from "@/components/ChatPeople";
+import ChatWindow from "@/components/ChatWindow";
 import Navbar from "@/components/Navbar";
 import { Loader } from "@/components/ui/loader";
 import {
@@ -37,16 +39,12 @@ const Chat = () => {
           direction="horizontal"
           className="min-h-[92vh] max-w-[100vw] rounded-lg border mt-2"
         >
-          <ResizablePanel defaultSize={20}>
-            <div className="flex h-full items-center justify-center p-6">
-              <span className="font-semibold">Sidebar</span>
-            </div>
+          <ResizablePanel defaultSize={25}>
+            <ChatPeople />
           </ResizablePanel>
           <ResizableHandle withHandle />
-          <ResizablePanel defaultSize={80}>
-            <div className="flex h-full items-center justify-center p-6">
-              <span className="font-semibold">Content</span>
-            </div>
+          <ResizablePanel defaultSize={75}>
+            <ChatWindow />
           </ResizablePanel>
         </ResizablePanelGroup>
       </div>

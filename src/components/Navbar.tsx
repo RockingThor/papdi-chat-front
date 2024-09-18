@@ -62,7 +62,7 @@ const Navbar = () => {
       </div>
       {!closed && (
         <div className="absolute">
-          <SearchPerson searchQuery={input} />
+          <SearchPerson searchQuery={input} setSearchQuery={setInput} />
         </div>
       )}
     </nav>

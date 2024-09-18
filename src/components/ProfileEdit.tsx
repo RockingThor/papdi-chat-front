@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { LogOutIcon } from "lucide-react";
+import { api } from "@/lib/axios";
 
 //TODO: Add picture
 const formSchema = z.object({
@@ -35,6 +36,11 @@ const ProfileEdit = () => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
+  }
+  function handleLogout() {
+    localStorage.setItem("user", "{}");
+    delete api.defaults.headers.common["Authorization"];
+    window.location.reload();
   }
   return (
     <div className="mt-4 ">
@@ -80,7 +86,7 @@ const ProfileEdit = () => {
         </form>
       </Form>
       <div className="buttons flex fixed bottom-5 right-0 gap-20 p-2 transition-all">
-        <Button variant={"outline"} className="mr-10">
+        <Button variant={"outline"} className="mr-10" onClick={handleLogout}>
           Logout &nbsp;
           <LogOutIcon />
         </Button>
